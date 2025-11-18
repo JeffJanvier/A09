@@ -1,7 +1,9 @@
 :root {
   --accent-color: #800000;
+
+  
   --menu-light: #ffffff;
-  --menu-mid: #faebd7;
+  --menu-mid: antiquewhite;
   --menu-dark: #000000;
 }
 
@@ -12,7 +14,7 @@
   box-sizing: border-box;
 }
 
-/* ---------- General page styles ---------- */
+/* ---------- page styles ---------- */
 body {
   font-family: "Times New Roman", Times, serif;
   color: #000;
@@ -66,7 +68,77 @@ header h3 {
   font-style: normal;
 }
 
-/* ---------- Main content ---------- */
+/* ---------- NAVBAR ---------- */
+.navbar {
+  background-color: var(--accent-color);
+  margin: 1rem 0;
+  padding: 0.25rem 0;
+}
+
+.navbar ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.menu li {
+  flex-basis: 20%;
+  text-align: center;
+}
+
+.menu a {
+  display: block;
+  padding: 1rem;
+  text-decoration: none;
+  color: var(--menu-light);
+  margin: 0 1px 2px;
+}
+
+.menu a:hover,
+.menu a:focus,
+.menu a.current {
+  background-color: var(--menu-mid);
+  color: var(--menu-dark);
+}
+
+/* remove extra spacing at edges */
+.menu > li:first-child a { margin-left: 0; }
+.menu > li:last-child a { margin-right: 0; }
+
+/* ---------- SUBMENU ---------- */
+.menu li:has(.submenu) {
+  position: relative;
+}
+
+.menu li small {
+  margin-left: 4px;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  background-color: var(--accent-color);
+  color: var(--menu-light);
+  list-style: none;
+  padding: 0;
+}
+
+.menu li:hover .submenu {
+  display: block;
+}
+
+.submenu li a {
+  margin: 0 2px 2px;
+}
+
+/* ----------content ---------- */
 main {
   display: flex;
   flex-wrap: wrap;
@@ -97,7 +169,7 @@ aside img {
   border-radius: 8px;
 }
 
-/* ---------- Speaker Section ---------- */
+/* ---------- Speaker ---------- */
 .speaker h1 {
   color: var(--accent-color);
 }
@@ -147,57 +219,12 @@ a:hover {
   text-decoration: underline;
 }
 
-/* ---------- Misc ---------- */
 blockquote {
-  font-style: normal;
+  font-style: normal; 
   margin: 1rem 2rem;
   color: #444;
 }
 
 .large {
   font-size: 125%;
-}
-
-/* ========================================================= */
-/*                     NAVIGATION MENU CSS                   */
-/* ========================================================= */
-
-/* ---------- Menu (flex layout) ---------- */
-.menu {
-  display: flex;
-  flex-wrap: wrap;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.menu li {
-  flex-basis: 20%;
-  text-align: center;
-}
-
-/* ---------- Navigation bar ---------- */
-.navbar {
-  background-color: var(--accent-color);
-}
-
-.navbar ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-}
-
-.navbar a {
-  display: block;
-  padding: 1rem;
-  text-decoration: none;
-  color: var(--menu-light);
-  margin: 0 1px 2px 1px;
-}
-
-.navbar a:hover,
-.navbar a:focus,
-.navbar a.current {
-  background-color: var(--menu-mid);
-  color: var(--menu-dark);
 }
